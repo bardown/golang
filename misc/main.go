@@ -20,7 +20,8 @@ type Game struct {
 }
 
 func pipedCMD() {
-	cmd := "echo | systemctl status mariadb.service"
+
+	cmd := "echo $PATH"
 	output, err := exec.Command("bash", "-c", cmd).CombinedOutput()
 
 	if err != nil {
@@ -44,7 +45,5 @@ func pipedCMD() {
 //}
 
 func main() {
-	Lucas := Player{Name: "Lucas", Goals: 5, Assists: 3, Points: 8, GamesPlayed: 2}
-
-	fmt.Printf("Name: %s, Goals: %d, Assists: %d, Points: %d, GamesPlayed: %d", Lucas.Name, Lucas.Goals, Lucas.Assists, Lucas.Points, Lucas.GamesPlayed)
+	pipedCMD()
 }
